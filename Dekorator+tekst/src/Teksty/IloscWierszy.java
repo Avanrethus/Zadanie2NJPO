@@ -59,6 +59,6 @@ public class IloscWierszy {
             System.out.println("Błędna ścieżka pliku!\n");
             }
         }
-        while(nazwaPliku.contains(".txt")!=true);
+        while(nazwaPliku.contains(".txt")!=true || nazwaPliku.contains(".docx")!=true || nazwaPliku.contains(".doc")!=true);
     }
 }
