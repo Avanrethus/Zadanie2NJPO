@@ -36,9 +36,11 @@ public class IloscWierszy {
                 else if(!ostatniPusty){
                     iloscWierszy++;
                 }
+                bis.close();
             }
             System.out.println("Ilość wierszy w pliku: " + iloscWierszy);
             return iloscWierszy;
+            
         }
     }
     public static void main (String [] args) throws IOException{
@@ -48,9 +50,10 @@ public class IloscWierszy {
             System.out.println("Prosze podać ścieżkę do pliku: ");
             Scanner s = new Scanner(System.in);
             nazwaPliku = s.nextLine();
-            if( nazwaPliku.contains(".txt")){
+            if( nazwaPliku.contains(".txt") || nazwaPliku.contains(".docx")||nazwaPliku.contains(".doc")){
                 IloscWierszy iw = new IloscWierszy();
                 iw.policzIloscWiersz(nazwaPliku);
+                break;
             }
             else{
             System.out.println("Błędna ścieżka pliku!\n");
