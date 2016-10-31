@@ -59,6 +59,50 @@ public class Symulator {
             System.out.println();
         }
     }
+    
+    public void ruch(PozycjaXY pozycja){
+        int ruch = 0;
+        boolean sciana = false;
+        Random r = new Random();
+        do{
+            sciana = false;
+            ruch = r.nextInt(4)+1;
+            if(ruch == 1){
+                if(plansza[pozycja.getPozX() +1][pozycja.getPozY()] != '#' && pozycja.getPozX()+1 < plansza.length){
+                    pozycja.setPozX(pozycja.getPozX() + 1);
+                }
+                else {
+                    sciana = true;
+                }
+            }
+            else if(ruch == 2){
+                if(plansza[pozycja.getPozX()-1][pozycja.getPozY()] != '#' && pozycja.getPozX()-1 > 0){
+                    pozycja.setPozX(p.getPozX()-1);
+                }
+                else{
+                    sciana = true;
+                }
+                        
+            }
+            else if(ruch == 3){
+                if(plansza[pozycja.getPozX()][pozycja.getPozY()+1] != '#' && pozycja.getPozY()+1 < plansza[0].length){
+                    pozycja.setPozY(pozycja.getPozY()+1);
+                }
+                else{
+                    sciana = true;
+                }
+            }
+            else if (ruch == 4){
+                if(plansza[pozycja.getPozX()][pozycja.getPozY()-1] != '#' && pozycja.getPozY()-1 > 0){
+                    pozycja.setPozY(pozycja.getPozY()-1);
+                }
+                else{
+                    sciana = true;
+                }
+            }
+        }
+        while(sciana == true);
+    }
     public static void main(String [] args){
         Symulator s = new Symulator();
         Scanner scan = new Scanner(System.in);
