@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Kraksa;
 
-/**
- *
- * @author Windows
- */
-public class Rowerzysta {
+public class Rowerzysta extends UzytkownikDrogi {
+    PozycjaXY pozycjaR;
     
+    Rowerzysta(){
+        this.pozycjaR = pozycjaR;
+        this.ustawO();
+        this.setPredkoscO(2);
+        this.setObiekt('R');
+    }
+    
+    Rowerzysta(PozycjaXY pozycjaR){
+        this.pozycjaR = pozycjaR;
+        this.ustawO();
+        this.setPredkoscO(2);
+        this.setObiekt('R');
+    }
+
+    @Override
+    public void ustawO() {
+        this.setPredkoscO(2);
+        this.setObiekt('R');
+    }
 }
