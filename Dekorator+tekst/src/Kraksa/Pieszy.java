@@ -1,17 +1,17 @@
 package Kraksa;
 
 public class Pieszy extends UzytkownikDrogi {
-    PozycjaXY pozycjaP;
+    UzytkownikDrogi P;
     
     Pieszy(){
-        this.pozycjaP = pozycjaP;
+        this.P = P;
         this.ustawO();
         this.setPredkoscO(1);
         this.setObiekt('P');
     }
     
-    Pieszy(PozycjaXY pozycjaP){
-        this.pozycjaP = pozycjaP;
+    Pieszy(UzytkownikDrogi P){
+        this.P = P;
         this.ustawO();
         this.setPredkoscO(1);
         this.setObiekt('P');

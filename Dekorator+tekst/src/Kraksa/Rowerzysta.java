@@ -1,17 +1,17 @@
 package Kraksa;
 
 public class Rowerzysta extends UzytkownikDrogi {
-    PozycjaXY pozycjaR;
+    UzytkownikDrogi R;
     
     Rowerzysta(){
-        this.pozycjaR = pozycjaR;
+        this.R = R;
         this.ustawO();
         this.setPredkoscO(2);
         this.setObiekt('R');
     }
     
-    Rowerzysta(PozycjaXY pozycjaR){
-        this.pozycjaR = pozycjaR;
+    Rowerzysta(UzytkownikDrogi R){
+        this.R = R;
         this.ustawO();
         this.setPredkoscO(2);
         this.setObiekt('R');

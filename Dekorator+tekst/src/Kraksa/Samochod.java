@@ -1,17 +1,17 @@
 package Kraksa;
 
 public class Samochod extends UzytkownikDrogi {
-    PozycjaXY pozycjaS;
+    UzytkownikDrogi S;
     
     Samochod(){
-        this.pozycjaS = pozycjaS;
+        this.S = S;
         this.ustawO();
         this.setPredkoscO(3);
         this.setObiekt('S');
     }
     
-    Samochod(PozycjaXY pozycjaS){
-        this.pozycjaS = pozycjaS;
+    Samochod(UzytkownikDrogi S){
+        this.S = S;
         this.ustawO();
         this.setPredkoscO(3);
         this.setObiekt('S');

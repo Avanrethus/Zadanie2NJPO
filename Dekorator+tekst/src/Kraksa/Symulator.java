@@ -3,21 +3,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Symulator {
-        PozycjaXY p = new Pieszy();
-        PozycjaXY r = new Rowerzysta();
-        PozycjaXY s = new Samochod();
+        UzytkownikDrogi p = new Pieszy();
+        UzytkownikDrogi r = new Rowerzysta();
+        UzytkownikDrogi s = new Samochod();
         Random rand = new Random();
         static char [][] plansza = new char [10][20];
         
-    public void ustawUzytkownika(PozycjaXY pozycjaNaPlanszy) {
+    public void ustawUzytkownika(UzytkownikDrogi ud) {
         int pozX, pozY;
         do{
             pozX = (this.rand.nextInt(plansza.length));
             pozY = (this.rand.nextInt(plansza.length));
         }
         while(plansza[pozX][pozY] != '-');
-        pozycjaNaPlanszy.pozX = pozX;
-        pozycjaNaPlanszy.pozY = pozY;
+        ud.pozX = pozX;
+        ud.pozY = pozY;
     }
     
     public void rysujPlansze(){
@@ -59,7 +59,7 @@ public class Symulator {
         }
     }
     
-    public void ruch(PozycjaXY pozycja){
+    public void ruch(UzytkownikDrogi ud){
         int ruch ;
         boolean sciana;
         Random random = new Random();
@@ -68,29 +68,29 @@ public class Symulator {
             ruch = random.nextInt(4)+1;
             switch (ruch) {
                 case 1:
-                    if(plansza[pozycja.getPozX() +1][pozycja.getPozY()] != '#' && pozycja.getPozX()+1 < plansza.length){
-                        pozycja.setPozX(pozycja.getPozX() + 1);
+                    if(plansza[ud.getPozX() +1][ud.getPozY()] != '#' && ud.getPozX()+1 < plansza.length){
+                        ud.setPozX(ud.getPozX() + 1);
                     }
                     else {
                         sciana = true;
                     }   break;
                 case 2:
-                    if(plansza[pozycja.getPozX()-1][pozycja.getPozY()] != '#' && pozycja.getPozX()-1 > 0){
-                        pozycja.setPozX(p.getPozX()-1);
+                    if(plansza[ud.getPozX()-1][ud.getPozY()] != '#' && ud.getPozX()-1 > 0){
+                        ud.setPozX(p.getPozX()-1);
                     }
                     else{
                         sciana = true;
                     }   break;
                 case 3:
-                    if(plansza[pozycja.getPozX()][pozycja.getPozY()+1] != '#' && pozycja.getPozY()+1 < plansza[0].length){
-                        pozycja.setPozY(pozycja.getPozY()+1);
+                    if(plansza[ud.getPozX()][ud.getPozY()+1] != '#' && ud.getPozY()+1 < plansza[0].length){
+                        ud.setPozY(ud.getPozY()+1);
                     }
                     else{
                         sciana = true;
                     }   break;
                 case 4:
-                    if(plansza[pozycja.getPozX()][pozycja.getPozY()-1] != '#' && pozycja.getPozY()-1 > 0){
-                        pozycja.setPozY(pozycja.getPozY()-1);
+                    if(plansza[ud.getPozX()][ud.getPozY()-1] != '#' && ud.getPozY()-1 > 0){
+                        ud.setPozY(ud.getPozY()-1);
                     }
                     else{
                         sciana = true;
