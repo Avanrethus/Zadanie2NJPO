@@ -103,6 +103,36 @@ public class Symulator {
         }
         while(sciana == true);
     }
+    public void Kolizja(){
+        if(r.getPozX()==p.getPozX() && r.getPozY()==p.getPozY()){
+            System.out.println("Kraksa! Rowerzysta zderzył się z pieszym. Koniec symulacji");
+            System.exit(0);
+        }
+        if(r.getPozX()==s.getPozX() && r.getPozY()==s.getPozY()){
+            System.out.println("Kraksa! Samochód wjechał w rowerzystę. Koniec symulacji");
+            System.exit(0);
+        }
+        else if(s.getPozX()==p.getPozX()&& s.getPozY()==p.getPozY()){
+            System.out.println("Kraksa! Pieszy wpadł pod samochód. Koniec symulacji");
+            System.exit(0);
+        }
+    }
+    
+    public void Symulacja(){
+        for (int i = 0; i<s.predkoscO; i++){
+            ruch(s);
+            Kolizja();
+        }
+        for (int i = 0; i <r.predkoscO; i++){
+            ruch(r);
+            Kolizja();
+        }
+        for (int i = 0; i<p.predkoscO; i++){
+            ruch(p);
+            Kolizja();
+        }
+    }
+    
     public static void main(String [] args){
         Symulator s = new Symulator();
         Scanner scan = new Scanner(System.in);
