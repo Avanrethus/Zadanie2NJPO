@@ -3,7 +3,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Symulator {
-        static String opt;
         PozycjaXY p = new Pieszy();
         PozycjaXY r = new Rowerzysta();
         PozycjaXY s = new Samochod();
@@ -61,44 +60,43 @@ public class Symulator {
     }
     
     public void ruch(PozycjaXY pozycja){
-        int ruch = 0;
-        boolean sciana = false;
-        Random r = new Random();
+        int ruch ;
+        boolean sciana;
+        Random random = new Random();
         do{
             sciana = false;
-            ruch = r.nextInt(4)+1;
-            if(ruch == 1){
-                if(plansza[pozycja.getPozX() +1][pozycja.getPozY()] != '#' && pozycja.getPozX()+1 < plansza.length){
-                    pozycja.setPozX(pozycja.getPozX() + 1);
-                }
-                else {
-                    sciana = true;
-                }
-            }
-            else if(ruch == 2){
-                if(plansza[pozycja.getPozX()-1][pozycja.getPozY()] != '#' && pozycja.getPozX()-1 > 0){
-                    pozycja.setPozX(p.getPozX()-1);
-                }
-                else{
-                    sciana = true;
-                }
-                        
-            }
-            else if(ruch == 3){
-                if(plansza[pozycja.getPozX()][pozycja.getPozY()+1] != '#' && pozycja.getPozY()+1 < plansza[0].length){
-                    pozycja.setPozY(pozycja.getPozY()+1);
-                }
-                else{
-                    sciana = true;
-                }
-            }
-            else if (ruch == 4){
-                if(plansza[pozycja.getPozX()][pozycja.getPozY()-1] != '#' && pozycja.getPozY()-1 > 0){
-                    pozycja.setPozY(pozycja.getPozY()-1);
-                }
-                else{
-                    sciana = true;
-                }
+            ruch = random.nextInt(4)+1;
+            switch (ruch) {
+                case 1:
+                    if(plansza[pozycja.getPozX() +1][pozycja.getPozY()] != '#' && pozycja.getPozX()+1 < plansza.length){
+                        pozycja.setPozX(pozycja.getPozX() + 1);
+                    }
+                    else {
+                        sciana = true;
+                    }   break;
+                case 2:
+                    if(plansza[pozycja.getPozX()-1][pozycja.getPozY()] != '#' && pozycja.getPozX()-1 > 0){
+                        pozycja.setPozX(p.getPozX()-1);
+                    }
+                    else{
+                        sciana = true;
+                    }   break;
+                case 3:
+                    if(plansza[pozycja.getPozX()][pozycja.getPozY()+1] != '#' && pozycja.getPozY()+1 < plansza[0].length){
+                        pozycja.setPozY(pozycja.getPozY()+1);
+                    }
+                    else{
+                        sciana = true;
+                    }   break;
+                case 4:
+                    if(plansza[pozycja.getPozX()][pozycja.getPozY()-1] != '#' && pozycja.getPozY()-1 > 0){
+                        pozycja.setPozY(pozycja.getPozY()-1);
+                    }
+                    else{
+                        sciana = true;
+                    }   break;
+                default:
+                    break;
             }
         }
         while(sciana == true);
@@ -134,20 +132,21 @@ public class Symulator {
     }
     
     public static void main(String [] args){
+        String opt="";
         Symulator s = new Symulator();
         Scanner scan = new Scanner(System.in);
         System.out.println("Witamy w symulatorze zachowań na drodze!");
+        s.rysujPlansze();
         do{
             System.out.println("Wciśnij R aby rozpocząć symulacje lub X żeby wyjść.");
             opt = scan.nextLine();
             if (opt.equalsIgnoreCase("R")){
-                s.rysujPlansze();
                 s.rysujUzytkownikow();
-                
+                s.Symulacja();
             }
         }
-        while(opt.toLowerCase().equals("X"));
-        
+        while(opt.toLowerCase().compareTo("X")!= 0);
+        System.exit(0);
         
     }
 }
