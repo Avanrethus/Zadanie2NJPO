@@ -145,8 +145,6 @@ public class Symulator {
                 s.Symulacja();
             }
         }
-        while(opt.toLowerCase().compareTo("X")!= 0);
-        System.exit(0);
-        
+        while(opt.toLowerCase().compareTo("x")!= 0);
     }
 }
